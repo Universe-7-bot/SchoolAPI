@@ -20,7 +20,7 @@ const StudentSchema = new mongoose.Schema(
 }
 )
 
-//model -model is a js object helps to interact with database
-let StudentModel = mongoose.model("user", StudentSchema);
+//model - model is a js object helps to interact with database
+let StudentModel = mongoose.model("student", StudentSchema);
 
 module.exports = StudentModel;

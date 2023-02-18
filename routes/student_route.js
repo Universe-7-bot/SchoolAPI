@@ -13,7 +13,7 @@ router.get("/allStudent", async (req, res) => {
     }
 })
 
-router.post("searchByEmail", async (req, res) => {
+router.post("/searchByEmail", async (req, res) => {
     let email = req.body.email;
 
     if (!email) {
