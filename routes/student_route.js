@@ -71,8 +71,8 @@ router.get("/delete/:id", async (req, res) => {
     let id = req.params.id;
     try {
         await Student.findByIdAndDelete(id);
-        // return res.json({ message: "deleted successfully" });
-        res.redirect("127.0.0.1:5500/student.html");
+        return res.json({ message: "deleted successfully" });
+        // res.redirect("127.0.0.1:5500/student.html");
     } catch (err) {
         return res.json({ message: err.message });
     }
