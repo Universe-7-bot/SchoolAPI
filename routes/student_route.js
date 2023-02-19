@@ -37,7 +37,7 @@ router.post("/searchByEmail", async (req, res) => {
 })
 
 router.post("/addNew", async (req, res) => {
-    const { firstName, lastName, email } = req.body; //firstName = req.body.firstName object destructuring
+    let { firstName, lastName, email } = req.body; //firstName = req.body.firstName object destructuring
     if (!firstName || !lastName || !email) {
         return res.json({ message: "please enter all the fields" });
     }
@@ -62,6 +62,17 @@ router.post("/search", async (req, res) => {
     try {
         let info = await Student.find(query);
         return res.json({ info });
+    } catch (err) {
+        return res.json({ message: err.message });
+    }
+})
+
+router.get("/delete/:id", async (req, res) => {
+    let id = req.params.id;
+    try {
+        await Student.findByIdAndDelete(id);
+        // return res.json({ message: "deleted successfully" });
+        res.redirect("127.0.0.1:3000/student.html");
     } catch (err) {
         return res.json({ message: err.message });
     }
