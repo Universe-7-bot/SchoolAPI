@@ -72,7 +72,7 @@ router.get("/delete/:id", async (req, res) => {
     try {
         await Student.findByIdAndDelete(id);
         // return res.json({ message: "deleted successfully" });
-        res.redirect("127.0.0.1:3000/student.html");
+        res.redirect("127.0.0.1:5500/student.html");
     } catch (err) {
         return res.json({ message: err.message });
     }

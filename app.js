@@ -22,7 +22,7 @@ mongoose.connect(process.env.DB_URL).then(() => {
 // excel -> sheets -> rows
 
 //middleware
-app.use(function (req, res, next) {
+app.use(function (req, res, next) { //cors
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     res.header(
