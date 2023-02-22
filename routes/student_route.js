@@ -78,4 +78,18 @@ router.get("/delete/:id", async (req, res) => {
     }
 })
 
+router.post("/update/:id", async (req, res) => {
+    let id = req.params.id;
+    let { firstName, lastName, email } = req.body;
+
+    try {
+        await Student.findByIdAndUpdate(id, { firstName, lastName, email })
+        // let data = await Student.findById(id)
+        // return res.json({ message: data });
+        return res.json({ message: "Updated successfully" });
+    } catch (err) {
+        return res.json({ message: err.message });
+    }
+})
+
 module.exports = router;
